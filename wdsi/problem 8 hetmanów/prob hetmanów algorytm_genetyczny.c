@@ -12,10 +12,10 @@ int tak_czy_nie(float prawdopodobienstwo);
 int main(int argc, char* argv[])
 {
 	srand(time(NULL));
-	int N,P=100; N=atoi(argv[1]);
-	//printf("Szachownica ma rozmiar N*N. Ile ma wynosić N?\nN=");
-	printf("Szachownica ma rozmiar N*N. N=%d\n", N);
-	//scanf("%d",&N);
+	int N,P=100; //N=atoi(argv[1]);
+	printf("Szachownica ma rozmiar N*N. Ile ma wynosić N?\nN=");
+	//printf("Szachownica ma rozmiar N*N. N=%d\n", N);
+	scanf("%d",&N);
 	//printf("Jaka ma być liczebność populacji(P)?\nP=");
 	//scanf("%d",&P);
 	float prawdopodobienstwo_krzyzowania=0.8;
@@ -57,7 +57,7 @@ int main(int argc, char* argv[])
 			liczba=rand()%suma_rankingow+1;
 			ranking=P;
 			while((liczba-=ranking)>0) ranking--;//ustalenie który osobnik populacji trafi do nowej do populacji
-			for(j=0; j<N; j++)//tworzenie populacji potomnej 
+			for(j=0; j<N; j++)//tworzenie populacji potomnej
 				dzieci[i][j]=populacja[P-ranking][j];
 			dzieci[i][N]=0;
 		}
@@ -92,7 +92,7 @@ int main(int argc, char* argv[])
 		}
 		populacja=dzieci;
 		dzieci=NULL;
-		liczba_pokolen--; 
+		liczba_pokolen--;
 	}
 	if(ile_kolizji(the_best, N))
 	{
@@ -135,7 +135,7 @@ int decyzja(int **populacja, int *the_best, int P, int N)
 	fprintf(najlepsze,"%d\n", populacja[0][N]);
 	return ile_kolizji(populacja[0], N);
 }
-		   
+
 int ile_kolizji(int tab[], int n)
 {
 	int i,j,kolizje=0;
@@ -166,7 +166,7 @@ void sortowanie(int **tab, int P, int N)
                 tab[j+1]=tmp;
             }
         if(licznik==0) break;
-    }	
+    }
 }
 
 int tak_czy_nie(float prawdopodobienstwo) //podaje się liczbę z przedziału od 0 do 1. Zwraca 0 lub 1 w
