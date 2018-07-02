@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <time.h> //rand, srand
 #include <stdlib.h>
-
+/////////////////////////////////////////////////////////
 FILE *srednie;
 FILE *najlepsze;
 int ile_kolizji(int tab[], int n);
